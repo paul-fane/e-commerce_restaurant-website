@@ -1,0 +1,74 @@
+{% extends "layout-admin.html" %}
+
+{% block nav %}
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/admin">Admin</a></li>
+            <li class="breadcrumb-item"><a href="/admin/orders">Orders</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Change Order</li>
+        </ol>
+    </nav>
+{% endblock %}
+
+{% block admin %}
+    <h2 class="admin-area-title">Change Order</h2>
+    <h4>ID: {{ order.uniqueID }}</h4>
+    
+    <!-- Form populated with the value of the product -->
+    <form action="/admin/orders/{{ order.orderID }}/change" method="post">
+        <div class="mb-3 row form-row">
+            <label for="uniqueID" class="col-sm-2 col-form-label">Unique ID:</label>
+            <div class="col-sm-10">
+                <input autocomplete="off" class="form-control"  id="uniqueID" name="uniqueID" value="{{ order.uniqueID }}" type="text">
+            </div>
+        </div>
+        <div class="mb-3 row form-row">
+            <label for="customerID" class="col-sm-2 col-form-label">Customer ID:</label>
+            <div class="col-sm-10">
+                <input autocomplete="off" class="form-control"  id="customerID" name="customerID" value="{{ order.customerID }}" type="text">
+            </div>
+        </div>
+        <div class="mb-3 row form-row">
+            <label for="created_at" class="col-sm-2 col-form-label">Created date:</label>
+            <div class="col-sm-10">
+                <input autocomplete="off" class="form-control"  id="created_at" name="created_at" value="{{ order.created_at }}" type="datetime-local">
+            </div>
+        </div>
+        <div class="mb-3 row form-row">
+            <label for="pickup_delivery_time" class="col-sm-2 col-form-label">Pickup/Delivery date and time:</label>
+            <div class="col-sm-10">
+                <input autocomplete="off" class="form-control" id="pickup_delivery_time" name="pickup_delivery_time" value="{{ order.pickup_delivery_time }}" type="datetime-local">
+            </div>
+        </div>
+        <div class="mb-3 row form-row">
+            <label for="total_price" class="col-sm-2 col-form-label">Total price:</label>
+            <div class="col-sm-10">
+                <input autocomplete="off" class="form-control" id="total_price" name="total_price" value="{{ order.total_price }}" type="number" step="0.01">
+            </div>
+        </div>
+        <div class="mb-3 row form-row">
+            <label for="type" class="col-sm-2 col-form-label">Type:</label>
+            <div class="col-sm-10">
+                <select class="second-option form-control" id="type" name="type"  aria-label="Default select example">
+                    <option id="value-type-order-database" selected value="{{ order.type }}">{{ order.type }}</option>
+                </select>
+            </div>
+        </div>
+        <div class="mb-3 row form-row">
+            <label for="address" class="col-sm-2 col-form-label">Address (Street, City, State, Zip Code):</label>
+            <div class="col-sm-10">
+                <input autocomplete="off" class="form-control" id="address" name="address" value="{{ order.address }}" type="text">
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit">Change</button>
+    </form>
+
+    <h3>LIST OF PRODUCTS IN THE ORDER</h3>
+    <ul>
+        {% for product in products%}
+        <li>
+            <p>Product: {{product.productName}}/ Quantity: {{product.quantity}}</p>
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

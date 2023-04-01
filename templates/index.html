@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Take Away
+{% endblock %}
+
+{% block main %}
+    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-bs-interval="5000">
+            <img src="https://images.unsplash.com/photo-1490716961549-5dbd18f53101?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80"  class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item" data-bs-interval="5000">
+            <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"  class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item" data-bs-interval="5000">
+            <img src="https://images.unsplash.com/photo-1480889856166-56e89b80386c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"  class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <div class="">
+      <h1>Welcome</h1>
+
+      <h2>About us</h2>
+      <p>Authentic local produce for contemporary tastes.</p>
+      <p>At Take Away’s Restaurant, we aim to enhance every element of your dining experience, <br>
+      from the bread baked fresh every morning, to the final flourishes performed at the table. <br>
+      Our menus are dynamic, featuring a variety of classic Italian dishes, eloquently reworked <br>
+      with disruptive elements. Fresh, simple ingredients - expertly sourced and imaginatively prepared.</p>
+    </div>
+
+    <div>
+      <h1>Hours & Location</h1>
+      <h2>Location</h2>
+      <p><a href="https://www.google.com/maps/" target="_blank">Via Roma, 242 <br> Turin 10321</a></p>
+      <h2>Opening Hours</h2>
+      <p>Breakfast: 7:00am - 11:00am daily <br> Lunch: 12:30pm - 2:00pm daily <br>Dinner: 7:00pm - 10:00pm daily</p>
+    </div>
+{% endblock %}

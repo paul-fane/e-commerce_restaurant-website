@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Account
+{% endblock %}
+
+{% block main %}
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">Account</li>
+        </ol>
+    </nav>
+
+    <!-- Profile description -->
+    {% for data in customer %}
+    <div class="card shadow p-3 mb-5 bg-body rounded">
+        <div class="card-body">
+            <h5 class="card-title">Profile Name: {{data.customerName}}</h5>
+            <p class="card-text">Username: {{data.username}}</p>
+            <p class="card-text">Email: {{data.email}}</p>
+            <p class="card-text">Register time: <small class="table-design text-muted">{{data.created_at}}</small></p>
+        </div>
+    </div>
+    {% endfor %}
+
+    <!-- List of all the orders of the profile -->
+    <h2 class="admin-area-title">My orders</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr class="table-design">
+                <td class="admin-area-title">ORDERS</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in orders %}
+            <tr class="table-design">
+                <td>
+                    <div class="table-title">
+                        <a class="table-font" href="/account/orders/{{ order.orderID }}">
+                            Order ID: {{ order.uniqueID }}
+                        </a>
+                        <small class="table-design text-muted">Created:{{ order.created_at }}</small>
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+            
+            {% if not orders %}
+            <tr>
+                <td>
+                    The list is empty!
+                </td>
+            </tr>
+            {% endif %}
+            
+        </tbody>
+    </table>
+{% endblock %}

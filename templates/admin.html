@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Admin
+{% endblock %}
+
+{% block main %}
+    <h2 class="admin-area-title">Take Away administration</h2>
+    
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">Admin</li>
+        </ol>
+    </nav>
+    
+
+    <table class="table table-striped">
+        <thead class="head-table">
+            <tr>
+                <td>TAKE AWAY</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <div class="table-title">
+                        <a class="title" href="/admin/customers">Customers</a>
+                        <a href="/admin/customers/add" role="button" class="btn btn-outline-success">Add</a>
+                        <a href="/admin/customers" role="button" class="btn btn-outline-secondary">Change</a>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="table-title">
+                        <a class="title" href="/admin/orders">Orders</a>
+                        <a href="" role="button" class="btn btn-outline-success">Add</a>
+                        <a href="/admin/orders" role="button" class="btn btn-outline-secondary">Change</a>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="table-title">
+                        <a class="title" href="/admin/products">Products</a>
+                        <a href="/admin/products/add" role="button" class="btn btn-outline-success">Add</a>
+                        <a href="/admin/products" role="button" class="btn btn-outline-secondary">Change</a>
+                    </div>
+                </td>
+              </tr>
+          </tbody>
+    </table>
+{% endblock %}

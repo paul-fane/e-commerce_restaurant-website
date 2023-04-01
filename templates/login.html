@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+    <div id="login" class="card shadow p-3 mb-5 bg-body rounded" style="width: 20rem;">
+        <div class="card-body">
+            <h1>Take Away</h1>
+            <form  action="/login" method="post">
+                <div class="mb-3">
+                    <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="username" name="username" placeholder="Username" type="text">
+                </div>
+                <div class="mb-3">
+                    <input class="form-control mx-auto w-auto" id="password" name="password" placeholder="Password" type="password">
+                </div>
+                <button class="btn btn-primary" type="submit">Log In</button>
+            </form>
+            <small class="table-design text-muted">
+                <div class="border login">
+                    <p>Don't have an account? <a href="/register">Sign up</a> </p>
+                </div>
+            </small>
+        </div>
+    </div>
+{% endblock %}

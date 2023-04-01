@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Admin
+{% endblock %}
+
+{% block main %}
+    <h2 class="admin-area-title">Take Away administration</h2>
+    {% block nav %}
+    {% endblock %}
+    
+    <div class="row navbar-content">
+        <div class="sidebar col-lg-2 col-md-3">
+            {% if session["user_id"] == 1 %}
+                <!-- Table navbar-->
+                <table id="table-navbar" class="table-striped">
+                    <thead class="head-table">
+                        <tr>
+                            <td>TAKE AWAY</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="table-title">
+                                    <a class="title" href="/admin/customers">Customers</a>
+                                    <a href="/admin/customers/add" role="button" class="btn btn-outline-success">Add</a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="table-title">
+                                    <a class="title" href="/admin/orders">Orders</a>
+                                    <a href="" role="button" class="btn btn-outline-success">Add</a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="table-title">
+                                    <a class="title" href="/admin/products">Products</a>
+                                    <a href="/admin/products/add" role="button" class="btn btn-outline-success">Add</a>
+                                </div>
+                            </td>
+                          </tr>
+                      </tbody>
+                </table>
+            {% endif %}
+        </div>
+        <div class="main col-lg-10 col-md-9">
+            {% block admin %}
+            {% endblock %}
+        </div>
+    </div>
+{% endblock %}

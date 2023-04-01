@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Pickup Menu
+{% endblock %}
+
+{% block main %}
+    <!--For any category whit products not archived-->
+    {% for category in categorys %}
+    <h2>{{category.category}}</h2>
+        <ul class="no-bullets">
+            <div class="row justify-content-center">
+            <!--Show all the products with that specific category and not archived-->
+            {% for product in products %}
+                {% if product.category == category.category and product.archive == 0 %}
+                    <div class="col">
+                        <li>
+                            <div class="card shadow p-3 mb-5 bg-body rounded" style="width: 18rem;">
+                                {% if product.image %}
+                                <a href="" class="image-squere-aspect">
+                                    <img style="width:100%"  src="{{ product.image }}" class="card-img-top" alt="...">
+                                </a>
+                                {% endif %}
+                                <div class="card-body">
+                                    <a href="" class="">
+                                        <h5 class="card-title">{{ product.productName }}</h5>
+                                    </a>
+                                    <p class="card-text">{{ product.category }}</p>
+                                    <p>Price: {{ product.price }}$</p>
+                                    <label>Quantity</label>
+                                    <input type="number" id="quantity-{{product.productID}}" name="quantity-{{product.productID}}" value="1" min="1" step="1">
+                                    <!-- Button trigger modal -->
+                                    <button type="button" id="add-to-cart-{{product.productID}}" class="add-to-cart btn btn-primary" data-id="{{product.productID}}" data-bs-toggle="modal" data-bs-target="#addToCartModal-{{product.productID}}">Add to cart</button>
+                                    <!-- Modal add to cart-->
+                                    <div class="modal fade" id="addToCartModal-{{product.productID}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="exampleModalLabel">{{ product.productName }} successfully added to your shopping cart!</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Continue shopping</button>
+                                            <a href="/cart" type="button" class="btn btn-primary">View cart</a>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </div>
+                {% endif %}
+            {% endfor %}
+            </div>
+        </ul>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Order Details
+{% endblock %}
+
+{% block main %}
+    <!-- Nav buttons -->
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/account">Account</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Ordin Details</li>
+        </ol>
+    </nav>
+
+    <!-- Account info -->
+    <div class="card shadow p-3 mb-5 bg-body rounded">
+        <div class="card-body">
+            <h4>ORDER DETAILS:</h4>
+            <h5 class="card-title">Unique ID: {{ order.uniqueID }}</h5>
+            <p class="card-text">Pickup/Delivery time: {{ order.pickup_delivery_time }}</p>
+            <p class="card-text">Type: {{ order.type }}</p>
+            <p class="card-text">Total price: {{ order.total_price }} $</p>
+            <p class="card-text">Register time: <small class="table-design text-muted">{{order.created_at}}</small></p>
+        </div>
+        <h4>LIST OF PRODUCTS IN THE ORDER:</h4>
+        <ul>
+            {% for product in products%}
+            <li>
+                <p>Product: {{product.category}} - {{product.productName}}/ Quantity: {{product.quantity}}</p>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

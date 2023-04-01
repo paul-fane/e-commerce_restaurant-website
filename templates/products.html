@@ -1,0 +1,70 @@
+{% extends "layout-admin.html" %}
+
+{% block nav %}
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/admin">Admin</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Products</li>
+        </ol>
+    </nav>
+{% endblock %}
+
+{% block admin %}
+    <!-- Title page and add button -->
+    <div class="table-title">
+        <h2 class="admin-area-title">Select Product to change</h2>
+        <a  href="/admin/products/add" type="button" class="btn btn-secondary">Add Product</a>
+    </div>
+
+    <!-- All available products -->
+    <table class="table table-striped">
+        <thead>
+            <tr class="table-design">
+                <td class="admin-area-title">PRODUCTS</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in products %}
+                {% if product.archive == 0 %}
+                <tr class="table-design">
+                    <td>
+                        <div class="table-title">
+                            <a class="table-font" href="/admin/products/{{ product.productID }}/change">{{ product.productID }}. {{ product.productName }}, {{ product.category }}</a>
+                        </div>
+                    </td>
+                </tr>
+                {% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- All archived products -->
+    <table class="table table-striped">
+        <thead>
+            <tr class="table-design">
+                <td class="admin-area-title">ARCHIVE PRODUCTS</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in products %}
+                {% if product.archive == 1 %}
+                <tr class="table-design">
+                    <td>
+                        <div class="table-title">
+                            <a class="table-font" href="/admin/products/{{ product.productID }}/change">{{ product.productID }}. {{ product.productName }}, {{ product.category }}</a>
+                        </div>
+                    </td>
+                </tr>
+                {% endif %}
+            {% endfor %}
+            {% if noArchive %}
+                <tr>
+                    <td>
+                        <a class="table-font">The list is empty!</a>
+                    </td>
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>
+    
+{% endblock %}

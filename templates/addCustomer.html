@@ -1,0 +1,48 @@
+{% extends "layout-admin.html" %}
+
+{% block nav %}
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/admin">Admin</a></li>
+            <li class="breadcrumb-item"><a href="/admin/customers">Customers</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Add Customer</li>
+        </ol>
+    </nav>
+{% endblock %}
+
+{% block admin %}
+    <h2 class="admin-area-title">Add Customer</h2>
+    <form action="/admin/customers/add" method="post">
+        <div class="mb-3 row form-row">
+            <label for="username" class="col-sm-2 col-form-label">Username:</label>
+            <div class="col-sm-10">
+                <input autocomplete="off" class="form-control" id="username" name="username" maxlength='40' type="text">
+            </div>
+        </div>
+        <div class="mb-3 row form-row">
+            <label for="fullname" class="col-sm-2 col-form-label">Full name:</label>
+            <div class="col-sm-10">
+                <input autocomplete="off" class="form-control" id="fullname" name="fullname" maxlength='40' type="text">
+            </div>
+        </div>
+        <div class="mb-3 row form-row">
+            <label for="email" class="col-sm-2 col-form-label">Email:</label>
+            <div class="col-sm-10">
+                <input autocomplete="off" class="form-control" id="email" name="email" maxlength='40' type="text">
+            </div>
+        </div>
+        <div class="mb-3 row form-row">
+            <label for="password" class="col-sm-2 col-form-label">Password:</label>
+            <div class="col-sm-10">
+                <input id="password" class="form-control" name="password" type="password">
+            </div>
+        </div>
+        <div class="mb-3 row form-row">
+            <label for="confirmation" class="col-sm-2 col-form-label">Password (again):</label>
+            <div class="col-sm-10">
+                <input id="confirmation" class="form-control" name="confirmation" type="password">
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit">Save and add another</button>
+    </form>
+{% endblock %}

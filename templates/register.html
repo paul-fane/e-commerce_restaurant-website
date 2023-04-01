@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+    <div id="login" class="card shadow p-3 mb-5 bg-body rounded" style="width: 20rem;">
+        <div class="card-body">
+            <h1>Take Away</h1>
+            <p>Sign up to order your food</p>
+            <form action="/register" method="post">
+                <div class="mb-3">
+                    <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="username" name="username" maxlength='40' placeholder="Username" type="text">
+                </div>
+                <div class="mb-3">
+                    <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="fullname" name="fullname" maxlength='40' placeholder="Full name" type="text">
+                </div>
+                <div class="mb-3">
+                    <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="email" name="email" maxlength='40' placeholder="Email" type="text">
+                </div>
+                <div class="mb-3">
+                    <input class="form-control mx-auto w-auto" id="password" name="password" placeholder="Password" type="password">
+                </div>
+                <div class="mb-3">
+                    <input class="form-control mx-auto w-auto" id="confirmation" name="confirmation" placeholder="Password (again)" type="password">
+                </div>
+                <button class="btn btn-primary" type="submit">Register</button>
+            </form>
+            <small class="table-design text-muted">
+                <div>
+                    <p>Have an account? <a href="/login">Log in</a> </p>
+                </div>
+            </small>
+        </div>
+    </div>
+{% endblock %}

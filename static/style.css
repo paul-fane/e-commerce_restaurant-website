@@ -1,0 +1,156 @@
+body{
+    background: #f1efe9;
+    font-family: "futura-pt";
+}
+
+.container{
+    max-width: 1200px;
+}
+
+#footer {
+    -webkit-box-align: stretch;
+    bottom: 0;
+    width: 100%;
+    height: 5.4rem;
+  }
+
+.text{
+    background-color: lightgray;
+    color: black
+}
+
+.margin{
+    margin-bottom: 100px;
+}
+
+#login{
+    max-width: 350px;
+    justify-content: center;
+    -webkit-box-pack: center;
+    align-items: center;
+    margin-top: 12px;
+    background-color: white;
+    margin: auto;
+}
+
+.form-margin{
+    margin-top: 25px;
+}
+
+.menu{
+    margin-top: 75px;
+}
+
+.menu-list{
+    list-style-type: none;
+}
+
+.btn-group-vertical{
+    min-width: 500px;
+}
+
+/* Sidebar admin */
+.navbar-content{
+    display: flex;
+    flex: 0 auto;
+}
+
+.sidebar {
+    padding: 20px;
+}
+
+
+.table-title{
+    display: block;
+    display: flex;
+}
+
+.title{
+    flex-grow: 1;
+    padding-top: 7px;
+    font-weight: 600;
+    text-decoration: none;
+    color: #408197;
+}
+
+.table-font{
+    flex-grow: 1;
+    font-weight: 600;
+    text-decoration: none;
+    color: #408197;
+}
+
+
+
+.head-table{
+    background-color: #408197;
+    color: white;
+    font-weight: 600;
+}
+
+.admin-area-title{
+    color:#666;
+    flex-grow: 1;
+}
+
+.list-adminarea{
+    list-style-type: none;
+}
+
+
+/* Table design admin */
+
+.table-design{
+    padding: 0;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+td, th {
+    font-size: 13px;
+    line-height: 16px;
+    border-bottom: 1px solid #b4b4b4;
+    vertical-align: top;
+    padding: 8px;
+}
+
+.no-bullets{
+    list-style-type: none;
+}
+
+.input-cart-quantity{
+    width: 50px;
+}
+
+#table-navbar{
+    flex-grow: 1;
+}
+
+#form-search-order{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.form-row{
+    padding-bottom: 10px;
+    font-size: 13px;
+    border-bottom: 1px solid #a7a7a7d2;
+}
+
+#change-archive{
+    margin-top: 10px;
+}
+
+/* Fit photo in the card */
+.card-img-top {
+    width: 100%;
+    height: 20vh;
+    object-fit: contain;
+}
+
+.card-img-top-cart {
+    width: 100%;
+    height: 8vh;
+    object-fit: contain;
+}

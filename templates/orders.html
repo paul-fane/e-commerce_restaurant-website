@@ -1,0 +1,85 @@
+{% extends "layout-admin.html" %}
+
+{% block nav %}
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/admin">Admin</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Orders</li>
+        </ol>
+    </nav>
+{% endblock %}
+
+{% block admin %}
+    <!-- Title page and add button -->
+    <div class="table-title">
+        <h2 class="admin-area-title">Select Orders to change</h2>
+        <a  href="" type="button" class="btn btn-secondary">Add Order</a>
+    </div>
+
+    <!-- Form for searching orders -->
+    <div class="card shadow p-3 mb-5 bg-body rounded">
+        <div class="card-body">
+            <form>
+                <h3>Search order by:</h3>
+                <div id="form-search-order">
+                    <div class="mb-3">
+                        <label>Type:</label>
+                        <select  id="type-search" name="type-search"  aria-label="Default select example">
+                            <option selected ></option>
+                            <option value="Pickup">Pickup</option>
+                            <option value="Delivery" >Delivery</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label>Customer Name:</label>
+                        <input autocomplete="off"  id="customerName-search" name="customerName-search" type="text">
+                    </div>
+                    <div class="mb-3">
+                        <label>Unique ID:</label>
+                        <input autocomplete="off"  id="uniqueID-search" name="uniqueID-search" type="text">
+                    </div>
+                    <div class="mb-3">
+                        <label>Pickup/Delivery date and time:</label>
+                        <input autocomplete="off"  id="pickup_delivery_time-search" name="pickup_delivery_time-search" type="date">
+                    </div>
+                </div>
+                <button id="search-order-button" class="btn btn-primary" type="button">Search</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- List of search -->
+    <table class="table table-striped">
+        <thead>
+            <tr class="table-design">
+                <td id="length-search" class="admin-area-title">RESULT SEARCH</td>
+            </tr>
+        </thead>
+        <tbody class="result-search-order">
+            
+        </tbody>
+    </table>
+    
+    <!-- All the orders -->
+    <table class="table table-striped">
+        <thead>
+            <tr class="table-design">
+                <td class="admin-area-title">ALL ORDERS ({{ orders|length }})</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in orders %}
+            <tr class="table-design">
+                <td>
+                    <div class="table-title">
+                        <a class="table-font" href="/admin/orders/{{ order.orderID }}/change">
+                            {{ order.orderID }}. ID({{ order.uniqueID }})  - {% for customer in customers %}{% if order.customerID == customer.customerID %} {{customer.customerName}} {% endif %}{% endfor %}
+                        </a>
+                        <small class="table-design text-muted">Created:{{ order.created_at }}</small>
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

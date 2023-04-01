@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Cart
+{% endblock %}
+
+{% block main %}
+    <h1>Cart</h1>
+    <table class="table">
+      <thead>
+          <tr>
+            <th class="text-start">PRODUCT</th>
+            <th class="text-end">QUANTITY</th>
+            <th class="text-end">PRICE</th>
+      </thead>
+
+      <tbody id="cart-body">
+          
+      </tbody>
+      <tfoot>
+          <tr>
+              <td class="border-0 fw-bold text-end" colspan="2">TOTAL PRICE</td>
+              <td id="cart-price" class="border-0 text-end"></td>
+          </tr>
+
+          <form id="form-cart">
+            <tr>
+              <td class="text-start"><lable>Pickup/delivery date</lable></td>
+              <td class="text-end" colspan="3"><input  class="form-control mx-auto w-auto" id="date-cart" name="date-cart"  type="datetime-local"></td>
+            </tr>
+            <tr>
+              <td class="text-start">
+                <lable>Select Pickup/delivery</lable>
+              </td>
+              <td class="text-end" colspan="3">
+                <select class="form-select" id="pickup-delivery" name="pickup-delivery" aria-label="Default select example">
+                  <option selected value="Pickup">Pickup</option>
+                  <option value="Delivery">Delivery</option>
+                </select>
+              </td>
+            </tr>
+            <tr id="address-order">
+              <td class="text-start">
+                <lable>Enter your address</lable>
+              </td>
+              <td id="tdColspan" class="text-end" colspan="3"> 
+                <input class="form-control" autocomplete="off" id="address-order-input" name="address-order-input" placeholder="Street, City, State, Zip Code" type="text">
+              </td>
+            </tr>
+            {% if session["user_id"] %}
+            <tr>
+              <td class="text-end" colspan="4"><button id="form-cart-button" class="btn btn-primary sent-cart" type="button">Order</button></td>
+            </tr> 
+            {% else %}
+            <tr>
+              <td colspan="3">
+                <div class="alert alert-info" role="alert">
+                  Login required
+                </div>
+              </td>
+              <td class="text-end" colspan="4">
+              <button id="form-cart-button" class="btn btn-primary sent-cart" type="button" disabled>Order</button>
+              </td>
+            </tr> 
+            {% endif %}
+          </form>
+      </tfoot>
+  </table>
+{% endblock %}
+

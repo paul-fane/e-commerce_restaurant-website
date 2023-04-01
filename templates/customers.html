@@ -1,0 +1,38 @@
+{% extends "layout-admin.html" %}
+
+{% block nav %}
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/admin">Admin</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Customers</li>
+        </ol>
+    </nav>
+{% endblock %}
+
+{% block admin %}
+    <!-- Title page and add button -->
+    <div class="table-title">
+        <h2 class="admin-area-title">Select Customer to change</h2>
+        <a  href="/admin/customers/add" type="button" class="btn btn-secondary">Add Customer</a>
+    </div>
+
+    <!-- List of all customers -->
+    <table class="table table-striped">
+        <thead>
+            <tr class="table-design">
+                <td class="admin-area-title">CUSTOMERS ({{ customers|length }})</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for customer in customers %}
+            <tr class="table-design">
+                <td>
+                    <div class="table-title">
+                        <a class="table-font" href="/admin/customers/{{ customer.customerID }}/change">{{ customer.customerID }}. {{ customer.customerName }}, {{ customer.username }}</a><small class="table-design text-muted">Created:{{ customer.created_at }}</small>
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
