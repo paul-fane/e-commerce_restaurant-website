@@ -1,5 +1,5 @@
 # E-COMMERCE RESTAURANT
-#### Video Demo:  <[URL HERE](https://www.youtube.com/watch?v=dumYnaFjs30)>
+#### Youtube Video Demo:  <[URL HERE](https://www.youtube.com/watch?v=dumYnaFjs30)>
 #### Description:
 Restaurant takeaway is a website for a restaurant that allows the customers to order their food and choose if they pick up the food from the restaurant, and eat elsewhere or deliver the food directly to their homes. There is also an administrator area, that allows a special user (admin) to add and change products, orders, and accounts, allows also to archive and unarchive products and do an advanced search in the existing orders.
 
